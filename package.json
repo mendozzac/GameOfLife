@@ -1,0 +1,25 @@
+{
+  "name": "the-game-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --collect-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendozzac/W02CHWend-Fernando-Mendoza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mendozzac/W02CHWend-Fernando-Mendoza/issues"
+  },
+  "homepage": "https://github.com/mendozzac/W02CHWend-Fernando-Mendoza#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "jest": "^27.2.5"
+  }
+}
