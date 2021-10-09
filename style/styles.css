@@ -10,6 +10,7 @@ body {
   margin: 0;
   background-color: antiquewhite;
   color: rgb(5, 146, 146);
+  font-family: "Montserrat", sans-serif;
 }
 .tablero {
   width: 500px;
