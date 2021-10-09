@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: antiquewhite;
+  color: rgb(5, 146, 146);
+  font-family: "Montserrat", sans-serif;
+}
+.tablero {
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgb(156, 155, 155);
+}
