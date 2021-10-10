@@ -20,7 +20,10 @@ const cuadrado = () => {
 };
 const tablero = cuadrado();
 
-const borrarCanvas = () => {};
+const borrarCanvas = () => {
+  canvas.width = canvas.width;
+  canvas.height = canvas.height;
+};
 
 class Celulas {
   constructor(x, y, estado) {
@@ -36,7 +39,7 @@ class Celulas {
           const vecinoY = (this.y + i + filas) % filas;
 
           if (i !== 0 || j !== 0) {
-            this.vecinos.push(tablero[vecinoY][vecinoX]);
+            this.vecinos.push(tablero[vecinoX][vecinoY]);
           }
         }
       }
@@ -68,10 +71,10 @@ class Celulas {
         suma += this.vecinos[i].estado;
       }
       this.estadoProximo = this.estado;
-      if (suma < 2 || suma > 3) {
+      if (this.estado === 1 && (suma < 2 || suma > 3)) {
         this.estadoProximo = 0;
       }
-      if (suma === 3) {
+      if (this.estado === 0 && suma === 3) {
         this.estadoProximo = 1;
       }
     };
@@ -111,7 +114,7 @@ const pintaTablero = (obj) => {
     }
   }
 };
-console.log(Celulas);
+
 iniciaTablero(tablero);
 const empezar = () => {
   borrarCanvas();
@@ -121,4 +124,3 @@ setInterval(() => {
   empezar();
 }, 1000 / fotogramasPorSegundo);
 empezar();
-console.log(fotogramasPorSegundo);
