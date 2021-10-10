@@ -72,7 +72,7 @@ class Celulas {
     };
   }
 }
-const inicializaTablero = (obj, aleatorio) => {
+const iniciaTablero = (obj, aleatorio) => {
   let estado;
   for (let i = 0; i < filas; i++) {
     for (let j = 0; j < columnas; j++) {
@@ -96,9 +96,19 @@ const pintaTablero = (obj) => {
       obj[i][j].pintar();
     }
   }
+  for (let i = 0; i < filas; i++) {
+    for (let j = 0; j < columnas; j++) {
+      obj[i][j].siguienteTurno();
+    }
+  }
+  for (let i = 0; i < filas; i++) {
+    for (let j = 0; j < columnas; j++) {
+      obj[i][j].mutacion();
+    }
+  }
 };
 
-inicializaTablero(tablero);
+iniciaTablero(tablero);
 const empezar = () => {
   borrarCanvas();
   pintaTablero(tablero);
