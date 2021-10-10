@@ -1,24 +1,18 @@
-class Juego {
-  constructor(filas, columnas) {
-    const objetoBase = new Array(filas);
-    for (let i = 0; i < filas; i++) {
-      objetoBase[i] = new Array(columnas);
-    }
-    return objetoBase;
-  }
-}
-function nuevoCuadrado(objetoBase, aleatorio) {
-  let estado;
+const inicia = () => {
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
 
-  for (let i = 0; i < filas; i++) {
-    for (let j = 0; j < columnas; j++) {
-      if (aleatorio === true) estado = Math.floor(Math.random() * 2);
-      else estado = 0;
+  canvas.width = canvasX;
+  canvas.height = canvasY;
 
-      objetoBase[i][j] = new celula(i, j, estado);
-    }
-  }
-}
-console.table(cuadrado());
+  casillaX = Math.floor(canvasX / filas);
+  casillaY = Math.floor(canvasY / columnas);
 
-module.exports = { cuadrado };
+  tablero = cuadrado(filas, columnas);
+
+  inicializaTablero(tablero, false);
+
+  setInterval(() => {
+    principal();
+  }, 1000 / fps);
+};
