@@ -1,12 +1,15 @@
-const canvas = document.getElementById("tablero");
-const contexto = canvas.getContext("2d");
-
 const canvasX = 500;
 const canvasY = 500;
-const filas = 100;
-const columnas = 100;
+const filas = 50;
+const columnas = 50;
 const casillaX = Math.floor(canvasX / filas);
 const casillaY = Math.floor(canvasY / columnas);
+const fotogramasPorSegundo = 20;
+
+const canvas = document.getElementById("tablero");
+const contexto = canvas.getContext("2d");
+canvas.width = canvasX;
+canvas.height = canvasY;
 
 const cuadrado = () => {
   const objetoBase = new Array(filas);
@@ -16,10 +19,8 @@ const cuadrado = () => {
   return objetoBase;
 };
 const tablero = cuadrado();
-const borrarCanvas = () => {
-  canvas.width = canvasX;
-  canvas.height = canvasY;
-};
+
+const borrarCanvas = () => {};
 
 class Celulas {
   constructor(x, y, estado) {
@@ -42,12 +43,18 @@ class Celulas {
     this.pintar = () => {
       let color;
       if (this.estado === 1) {
-        color = "#fff;";
+        color = "#faebd7";
       } else {
-        color = "#000";
+        color = "#10dada";
       }
       contexto.fillStyle = color;
       contexto.fillRect(
+        this.x * casillaX,
+        this.y * casillaY,
+        casillaX,
+        casillaY
+      );
+      contexto.strokeRect(
         this.x * casillaX,
         this.y * casillaY,
         casillaX,
@@ -113,4 +120,8 @@ const empezar = () => {
   borrarCanvas();
   pintaTablero(tablero);
 };
+setInterval(() => {
+  empezar();
+}, 1000 / fotogramasPorSegundo);
 empezar();
+console.log(fotogramasPorSegundo);
