@@ -26,7 +26,8 @@ class Celulas {
   constructor(x, y, estado) {
     this.x = x;
     this.y = y;
-    this.estadoProximo = estado;
+    this.estado = estado;
+    this.estadoProximo = this.estado;
     this.vecinos = [];
     this.añadirVecinos = () => {
       for (let i = -1; i < 2; i++) {
@@ -79,15 +80,11 @@ class Celulas {
     };
   }
 }
-const iniciaTablero = (obj, aleatorio) => {
+const iniciaTablero = (obj) => {
   let estado;
   for (let i = 0; i < filas; i++) {
     for (let j = 0; j < columnas; j++) {
-      if (aleatorio === true) {
-        estado = Math.floor(Math.random() * 2);
-      } else {
-        estado = 0;
-      }
+      estado = Math.floor(Math.random() * 2);
       obj[i][j] = new Celulas(i, j, estado);
     }
   }
@@ -114,7 +111,7 @@ const pintaTablero = (obj) => {
     }
   }
 };
-
+console.log(Celulas);
 iniciaTablero(tablero);
 const empezar = () => {
   borrarCanvas();
