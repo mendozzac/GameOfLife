@@ -58,12 +58,6 @@ class Celulas {
         casillaX,
         casillaY
       );
-      contexto.strokeRect(
-        this.x * casillaX,
-        this.y * casillaY,
-        casillaX,
-        casillaY
-      );
     };
     this.siguienteTurno = () => {
       let suma = 0;
