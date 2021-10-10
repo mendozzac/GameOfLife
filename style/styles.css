@@ -13,7 +13,5 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 .tablero {
-  width: 500px;
-  height: 500px;
   border: 2px solid rgb(156, 155, 155);
 }

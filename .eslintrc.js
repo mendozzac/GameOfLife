@@ -6,6 +6,7 @@ module.exports = {
   extends: ["airbnb-base", "prettier"],
   parserOptions: {
     ecmaVersion: 12,
+    jest: true,
   },
   rules: {
     "no-param-reassign": "off",

@@ -1,0 +1,1 @@
+const { cuadrado } = require("./juego ");
