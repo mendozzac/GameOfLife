@@ -39,6 +39,37 @@ class Celulas {
         }
       }
     };
+    this.pintar = () => {
+      let color;
+      if (this.estado === 1) {
+        color = "#fff;";
+      } else {
+        color = "#000";
+      }
+      contexto.fillStyle = color;
+      contexto.fillRect(
+        this.x * casillaX,
+        this.y * casillaY,
+        casillaX,
+        casillaY
+      );
+    };
+    this.siguienteTurno = () => {
+      let suma = 0;
+      for (let i = 0; i < this.vecinos.length; i++) {
+        suma += this.vecinos[i].estado;
+      }
+      this.estadoProximo = this.estado;
+      if (suma < 2 || suma > 3) {
+        this.estadoProximo = 0;
+      }
+      if (suma === 3) {
+        this.estadoProximo = 1;
+      }
+    };
+    this.mutacion = () => {
+      this.estado = this.estadoProximo;
+    };
   }
 }
 const inicializaTablero = (obj, aleatorio) => {
@@ -59,9 +90,17 @@ const inicializaTablero = (obj, aleatorio) => {
     }
   }
 };
+const pintaTablero = (obj) => {
+  for (let i = 0; i < filas; i++) {
+    for (let j = 0; j < columnas; j++) {
+      obj[i][j].pintar();
+    }
+  }
+};
 
 inicializaTablero(tablero);
 const empezar = () => {
   borrarCanvas();
+  pintaTablero(tablero);
 };
 empezar();
